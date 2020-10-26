@@ -16,25 +16,26 @@ import java.util.HashMap;
  */
 @Controller
 @RequestMapping(value = "list")
-public class ListController {
+public class ListController { //users to see either a table showing all the options for the different Job fields or a list of details for a selected set of jobs.
 
     static HashMap<String, String> columnChoices = new HashMap<>();
     static HashMap<String, Object> tableChoices = new HashMap<>();
 
-    public ListController () {
+    public ListController () { // a constructor that populating the HashMaps with values
         columnChoices.put("all", "All");
         columnChoices.put("employer", "Employer");
         columnChoices.put("location", "Location");
         columnChoices.put("positionType", "Position Type");
         columnChoices.put("coreCompetency", "Skill");
 
+        //tableChoices.put("all", JobData.findAll());
         tableChoices.put("employer", JobData.getAllEmployers());
         tableChoices.put("location", JobData.getAllLocations());
         tableChoices.put("positionType", JobData.getAllPositionTypes());
         tableChoices.put("coreCompetency", JobData.getAllCoreCompetency());
     }
 
-    @RequestMapping(value = "")
+    @RequestMapping(value = "") //list method
     public String list(Model model) {
         model.addAttribute("columns", columnChoices);
         model.addAttribute("tableChoices", tableChoices);
@@ -46,7 +47,7 @@ public class ListController {
         return "list";
     }
 
-    @RequestMapping(value = "jobs")
+    @RequestMapping(value = "jobs") //listJobsByColumnAndValue method
     public String listJobsByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value) {
         ArrayList<Job> jobs;
         if (column.toLowerCase().equals("all")){

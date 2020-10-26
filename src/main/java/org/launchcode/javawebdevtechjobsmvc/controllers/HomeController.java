@@ -10,7 +10,7 @@ import java.util.HashMap;
  * Created by LaunchCode
  */
 @Controller
-public class HomeController {
+public class HomeController { //dispalys the homepage for the app
 
     @RequestMapping(value = "")
     public String index(Model model) {

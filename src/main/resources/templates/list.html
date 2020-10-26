@@ -20,12 +20,19 @@
             <tr>
                 <!-- TODO #2: Complete the View Jobs By Category Table. -->
 
-                <td></td> <!-- Feel free to remove or modify this element if necessary. -->
+                <td>
 
-                <td th:each="category : ${tableChoices}">
+                    <a th:href="@{/list/jobs(column='all',value='')}"> View All</a>
+
+                </td> <!-- Feel free to remove or modify this element if necessary. -->
+                <!--tableChoices is a Hashmap from the JobData class where the keys are positionType, employer, skill,
+                and location while the values are ArrayLists of Employer, Location, CoreCompetency, or PositionType objects -->
+                <td th:each="category : ${tableChoices}"> <!-- category is a variable that contains one key/value pair from tableChoices -->
                     <ul>
-                        <li th:each="item : ${category.value}">
+                        <li th:each="item : ${category.value}"> <!-- item is a variable that contains a single entry from the ArrayList-->
                             <a th:href="@{/list/jobs(column=${category.key},value=${item})}" th:text="${item}"></a>
+                            <!-- ${category.key} is positionType, employer, skill, and location
+                            ${item} is a particular element found in the corresponding ArrayList -->
                         </li>
                     </ul>
                 </td>

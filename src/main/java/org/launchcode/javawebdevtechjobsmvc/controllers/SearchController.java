@@ -18,7 +18,7 @@ import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.co
 public class SearchController {
 
     @RequestMapping(value = "")
-    public String search(Model model) {
+    public String search(Model model) { //search method
         model.addAttribute("columns", columnChoices);
         return "search";
     }

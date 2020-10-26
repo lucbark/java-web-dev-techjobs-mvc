@@ -19,7 +19,7 @@ public class JobData {
     private static final String DATA_FILE = "job_data.csv";
     private static boolean isDataLoaded = false;
 
-    private static ArrayList<Job> allJobs;
+    private static ArrayList<Job> allJobs; //ArrayList is returned via the findAll() method
     private static ArrayList<Employer> allEmployers = new ArrayList<>();
     private static ArrayList<Location> allLocations = new ArrayList<>();
     private static ArrayList<PositionType> allPositionTypes = new ArrayList<>();
@@ -202,6 +202,8 @@ public class JobData {
             e.printStackTrace();
         }
     }
+
+
 
     public static ArrayList<Employer> getAllEmployers() {
         loadData();
