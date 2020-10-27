@@ -28,7 +28,8 @@
 
         <p>
             <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" /> <!-- searchTerm is the second parameter -->
+            <input type="text" name="searchTerm" id="searchTerm" /> <!-- searchType is the first parameter
+             and searchTerm is the second parameter -->
         </p>
 
         <input type="submit" value="Search" />
@@ -39,10 +40,15 @@
     <!-- TODO #4 - Loop over the search results to display all job fields. -->
 
     <table class="job-listing"> <!-- CSS class I think? -->
-        <tr th:each="variable : ${jobs}"> Test
+        <tr th:each="variable : ${jobs}">
+            <td><p th:text="'ID: ' + ${variable.id}"></p>
+                <p th:text="'Name: ' + ${variable.name}"></p>
+                <p th:text="'Employer: ' + ${variable.employer}"></p>
+                <p th:text="'Location: ' + ${variable.location}"></p>
+                <p th:text="'Position: ' + ${variable.positionType}"></p>
+                <p th:text="'Skill: ' + ${variable.coreCompetency}"></p>
+            </td>
         </tr>
-
-    </table>
 
 </div>
 
